@@ -32,7 +32,7 @@
 			@endif	--}}		
 
 		@foreach($promoters as $promoter)
-			<a href="{{url('promoter/' . $promoter -> slug)}}" class="col-md-4 col-xs-6 promoter-a">
+			<a href="{{url('promoter/' . $promoter -> slug)}}" class="col-md-4 col-xs-12 promoter-a">
 	            <div class="panel panel-default">
 	                <div class="panel-heading">
 	                	<h3 class="text-center caps">{{$promoter->agency_name}}</h3>
