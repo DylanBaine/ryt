@@ -84,7 +84,7 @@
                             <div class="col-md-12">
                                 <div class="flex-center">
                                     
-                                    <img src="{{url('icons/facebook-logo-button.png')}}" style="width: 18%; float: left; margin-right: 10px" />
+                                    <img src="{{url('images/icons/facebook-logo-button.png')}}" style="width: 18%; float: left; margin-right: 10px" />
 
                                      <input type="text" name="facebook" value="{{Auth::user()->facebook}}" class="form-control" style="width: 78%; float: right;">
                                  </div>
