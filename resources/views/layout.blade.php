@@ -139,7 +139,7 @@
                         <ul class="nav navbar-nav text-center hidden-big" style=" z-index: 999; overflow: hidden; background: transparent;   ">
                             <li><a href="/" class="home">Home</a></li>  
                             <li><a href="/bands" class="bands">Bands/Artists</a></li> 
-                            <li><a href="/promoter/register" class="promoters">Promoters/Booking Agents</a></li> 
+                            <li><a href="/promoters" class="promoters">Promoters/Booking Agents</a></li> 
                             <li><a href="/venue/register" class="venue">Submit Your Venue</a></li>
                             <li><a href="/community" class="community">Community</a></li> 
                             <li><a href="">Contact Us</a></li>
