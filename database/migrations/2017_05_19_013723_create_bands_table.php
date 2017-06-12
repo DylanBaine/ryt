@@ -32,6 +32,7 @@ class CreateBandsTable extends Migration
             $table->string('email_hidden')->default('yes');           
             $table->rememberToken();
             $table->timestamps();
+            
         });
     }
 
