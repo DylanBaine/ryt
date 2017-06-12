@@ -24,6 +24,12 @@ class CreateBandsTable extends Migration
             $table->string('phone');
             $table->string('profile_image')->default('default.jpg');
             $table->string('banner_image')->default('default.jpg');
+            $table->string('location')->nullable();
+            $table->string('facebook')->nullable();
+            $table->string('twitter')->nullable();
+            $table->text('bio')->nullable(); 
+            $table->string('soundcloud')->nullable();
+            $table->string('email_hidden')->default('yes');           
             $table->rememberToken();
             $table->timestamps();
         });

@@ -94,7 +94,7 @@
 
                                 <div class="flex-center">
                                     
-                                    <img src="{{url('icons/twitter-logo-button.png')}}" style="width: 18%; float: left; margin-right: 10px" />
+                                    <img src="{{url('images/icons/twitter-logo-button.png')}}" style="width: 18%; float: left; margin-right: 10px" />
                                     
                                      <input type="text" name="twitter" value="{{Auth::user()->twitter}}" class="form-control" style="width: 78%; float: right;">
                                  </div>
@@ -105,7 +105,7 @@
 
                                 <div class="flex-center">
                                     
-                                    <img src="{{url('icons/soundcloud-logo.png')}}" style="width: 18%; float: left; margin-right: 10px" />
+                                    <img src="{{url('/images/icons/soundcloud-logo.png')}}" style="width: 18%; float: left; margin-right: 10px" />
                                     
                                      <input type="text" name="soundcloud" value="{{Auth::user()->soundcloud}}" class="form-control" style="width: 78%; float: right;">
                                  </div>
