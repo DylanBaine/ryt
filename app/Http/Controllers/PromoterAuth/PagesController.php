@@ -17,7 +17,7 @@ class PagesController extends Controller
         if($search != NULL){
             $promoters = \App\Promoter::search($search)->paginate(12);
         }elseif ($search == NULL) {
-            $promoters = \App\Promoter::orderBy('id'. 'desc')->paginate(12);
+            $promoters = \App\Promoter::orderBy('id', 'desc')->paginate(12);
         }
 
         return view('promoter.index', compact('promoters', 'search'));
