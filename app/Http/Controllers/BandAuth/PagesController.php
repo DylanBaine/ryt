@@ -15,9 +15,11 @@ class PagesController extends Controller
     {
 
         $search = \Request::get('search');
-
-    	$bands = \App\Band::search($search)->paginate(5);
-
+        if($search != NULL){
+    	   $bands = \App\Band::search($search)->paginate(5);
+       }elseif ($search == NULL) {
+           $bands = \App\Band::orderBy('id', 'desc')->paginate(5);
+       }
     	return view('band.index', compact('bands', 'user', 'search'));
     }
 
