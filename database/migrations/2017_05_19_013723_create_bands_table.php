@@ -22,8 +22,8 @@ class CreateBandsTable extends Migration
             $table->string('first_name');
             $table->string('last_name');
             $table->string('phone');
-            $table->string('profile_image')->default('default.jpg');
-            $table->string('banner_image')->default('default.jpg');
+            $table->string('profile_image')->default('default.png');
+            $table->string('banner_image')->default('default.png');
             $table->string('location')->nullable();
             $table->string('facebook')->nullable();
             $table->string('twitter')->nullable();

@@ -22,6 +22,7 @@ Route::get('/register', 'PagesController@register')->name('register');
 
 Route::get('/bands', 'BandAuth\PagesController@index');
 Route::get('/promoters', 'PromoterAuth\PagesController@index');
+Route::get('/venues', 'VenueAuth\PagesController@index');
 
 
 Route::group(['prefix' => 'band'], function () {
@@ -51,12 +52,6 @@ Route::group(['prefix' => 'band'], function () {
 
 
 
-
-
-
-
-
-
 Route::group(['prefix' => 'promoter'], function () {
 
   Route::get('/login', 'PromoterAuth\LoginController@showLoginForm');
@@ -66,7 +61,7 @@ Route::group(['prefix' => 'promoter'], function () {
   Route::get('/register', 'PromoterAuth\RegisterController@showRegistrationForm');
   Route::post('/register', 'PromoterAuth\RegisterController@register');
 
-    Route::Put('{slug}/profile-image', 'PromoterAuth\PromoterInfoController@uploadProfileImage');
+  Route::Put('{slug}/profile-image', 'PromoterAuth\PromoterInfoController@uploadProfileImage');
   Route::Put('{slug}/header-image', 'PromoterAuth\PromoterInfoController@uploadHeaderImage');
   Route::Put('{slug}/info', 'PromoterAuth\PromoterInfoController@updateInfo');  
   Route::Put('{slug}/bio', 'PromoterAuth\PromoterInfoController@updateBio');
@@ -80,4 +75,27 @@ Route::group(['prefix' => 'promoter'], function () {
 
   Route::get('{slug}', 'PromoterAuth\PagesController@profile');
 
+});
+
+Route::group(['prefix' => 'venue'], function () {
+  Route::get('/login', 'VenueAuth\LoginController@showLoginForm');
+  Route::post('/login', 'VenueAuth\LoginController@login');
+  Route::post('/logout', 'VenueAuth\LoginController@logout');
+
+  Route::get('/register', 'VenueAuth\RegisterController@showRegistrationForm');
+  Route::post('/register', 'VenueAuth\RegisterController@register');
+
+  Route::Put('{slug}/profile-image', 'VenueAuth\VenueInfoController@uploadProfileImage');
+  Route::Put('{slug}/header-image', 'VenueAuth\VenueInfoController@uploadHeaderImage');
+  Route::Put('{slug}/gallery', 'VenueAuth\VenueInfoController@gallery');
+  Route::Put('{slug}/edit-info', 'VenueAuth\VenueInfoController@editInfo');
+
+  Route::get('home', 'VenueAuth\PagesController@home');
+
+  Route::post('/password/email', 'VenueAuth\ForgotPasswordController@sendResetLinkEmail');
+  Route::post('/password/reset', 'VenueAuth\ResetPasswordController@reset');
+  Route::get('/password/reset', 'VenueAuth\ForgotPasswordController@showLinkRequestForm');
+  Route::get('/password/reset/{token}', 'VenueAuth\ResetPasswordController@showResetForm');
+
+  Route::get('{slug}', 'VenueAuth\PagesController@profile');
 });

@@ -39,6 +39,8 @@ class RouteServiceProvider extends ServiceProvider
 
         $this->mapWebRoutes();
 
+        $this->mapVenueRoutes();
+
         $this->mapPromoterRoutes();
 
         $this->mapBandRoutes();
@@ -81,6 +83,25 @@ class RouteServiceProvider extends ServiceProvider
             'namespace' => $this->namespace,
         ], function ($router) {
             require base_path('routes/promoter.php');
+        });
+    }
+
+    /**
+     * Define the "venue" routes for the application.
+     *
+     * These routes all receive session state, CSRF protection, etc.
+     *
+     * @return void
+     */
+    protected function mapVenueRoutes()
+    {
+        Route::group([
+            'middleware' => ['web', 'venue', 'auth:venue'],
+            'prefix' => 'venue',
+            'as' => 'venue.',
+            'namespace' => $this->namespace,
+        ], function ($router) {
+            require base_path('routes/venue.php');
         });
     }
 

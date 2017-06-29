@@ -18,7 +18,7 @@ class Promoter extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'agency_name', 'email', 'password', 'first_name', 'last_name', 'phone', 'slug', 'genre', 'banner_image'
+        'agency_name', 'email', 'password', 'first_name', 'last_name', 'phone', 'slug', 'genre', 'banner_image', 'type'
     ];
 
     /**

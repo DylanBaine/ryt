@@ -36,6 +36,11 @@ return [
     */
 
     'guards' => [
+        'venue' => [
+            'driver' => 'session',
+            'provider' => 'venues',
+        ],
+
         'promoter' => [
             'driver' => 'session',
             'provider' => 'promoters',
@@ -75,6 +80,11 @@ return [
     */
 
     'providers' => [
+        'venues' => [
+            'driver' => 'eloquent',
+            'model' => App\Venue::class,
+        ],
+
         'promoters' => [
             'driver' => 'eloquent',
             'model' => App\Promoter::class,
@@ -112,6 +122,12 @@ return [
     */
 
     'passwords' => [
+        'venues' => [
+            'provider' => 'venues',
+            'table' => 'venue_password_resets',
+            'expire' => 60,
+        ],
+
         'promoters' => [
             'provider' => 'promoters',
             'table' => 'promoter_password_resets',

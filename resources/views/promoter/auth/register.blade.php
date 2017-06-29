@@ -9,6 +9,29 @@
                 <div class="panel-body">
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/promoter/register') }}">
                         {{ csrf_field() }}
+                        
+
+                        <div class="form-group{{ $errors->has('type') ? ' has-error' : '' }}">
+                            
+                            <h3 for="" class="text-center col-md-12">Please select a profile type</h3>
+
+                            <div class="col-md-6 col-md-offset-3 text-center">                            
+
+                                
+                                <div class="checkbox-cont">
+                                    <input type="radio" value="Promoter" id="promoter" style="opacity: 0;" name="type">
+                                    <label for="promoter">Promoter</label>
+                                </div>
+
+                                <div class="checkbox-cont">
+                                    <input type="radio" value="Booking Agent" id="agent" style="opacity: 0;" name="type">
+                                    <label for="agent">Booking agent</label>
+                                </div>
+
+                            </div>
+
+                        </div>
+                        
 
                         <div class="form-group{{ $errors->has('agency_name') ? ' has-error' : '' }}">
                             <label for="agency_name" class="col-md-4 control-label">Agency Name</label>

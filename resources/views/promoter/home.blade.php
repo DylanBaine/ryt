@@ -5,15 +5,15 @@
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-default">
-                <div class="panel-heading">You are logged in as <span class="caps">{{ Auth::user()->first_name }}</span>.</div>
+                <div class="panel-heading">You are logged in as <span class="caps">{{ Auth::user()->first_name }}</span>. <div class="pull-right">{{Auth::user()->type}}</div></div>
 
-                <div class="panel-body half-height banner" style=" background: url('{{url('images/promoters/banner/' . Auth::user()->banner_image )}}');">
+                <div class="panel-body half-height banner" style=" background: url('{{url('storage/promoters/banner/' . Auth::user()->banner_image )}}');">
                     <div class="" style="width: 100%; height: 100%; position: relative;  ">
                         
                         <div style="position: relative; top: 0; left: 0; height: 100%;">
                             
                             
-                            <div class="profile-image col-md-4" style="padding: 0; position: relative; margin-top: 157px; background: url('{{url('images/promoters/' . Auth::user()->profile_image )}}'); height: 20vh;">
+                            <div class="profile-image col-md-4" style="padding: 0; position: relative; margin-top: 157px; background: url('{{url('storage/promoters/avatar/' . Auth::user()->profile_image )}}'); height: 20vh;">
                     
                             </div>
                             <form action="/promoter/{{Auth::user()->slug}}/profile-image" method="post" enctype="multipart/form-data" style="margin-top: 233px;" class="col-xs-4">
