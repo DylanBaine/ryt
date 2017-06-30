@@ -18,7 +18,7 @@ class PromoterInfoController extends Controller
 
     		$imageURL = time() . '.' . $image->getClientOriginalExtension();
 
-    		Image::make($image)->save(public_path('images/promoters/'. $imageURL));
+    		Image::make($image)->save(public_path('storage/promoters/avatar/'. $imageURL));
 		
     		$user = \App\Promoter::where('slug', $slug )->first();
 
@@ -41,7 +41,7 @@ class PromoterInfoController extends Controller
 
             $imageURL = time() . '.' . $image->getClientOriginalExtension();
 
-            Image::make($image)->save(public_path('images/promoters/banner/'. $imageURL));
+            Image::make($image)->save(public_path('storage/promoters/banner/'. $imageURL));
         
             $user = \App\Promoter::where('slug', $slug )->first();
 

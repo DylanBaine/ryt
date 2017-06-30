@@ -7,34 +7,38 @@
             <div class="panel panel-default">
                 <div class="panel-heading">You are logged in as <span class="caps">{{ Auth::user()->first_name }}</span>. <div class="pull-right">{{Auth::user()->type}}</div></div>
 
-                <div class="panel-body half-height banner" style=" background: url('{{url('storage/promoters/banner/' . Auth::user()->banner_image )}}');">
-                    <div class="" style="width: 100%; height: 100%; position: relative;  ">
-                        
-                        <div style="position: relative; top: 0; left: 0; height: 100%;">
-                            
-                            
-                            <div class="profile-image col-md-4" style="padding: 0; position: relative; margin-top: 157px; background: url('{{url('storage/promoters/avatar/' . Auth::user()->profile_image )}}'); height: 20vh;">
-                    
-                            </div>
-                            <form action="/promoter/{{Auth::user()->slug}}/profile-image" method="post" enctype="multipart/form-data" style="margin-top: 233px;" class="col-xs-4">
-                                {{csrf_field()}}
-                                {{method_field('PUT')}}
-                                <label for="profile_image">Upload a new profile image.</label>
-                                <input type="file" id="profile_image" name="profile_image">
-                                <input value="Change Profile Image" type="submit" class="btn btn-transparent" style="position: relative; top: 5px; left: 0;">
-                            </form>
-                            
+                <div class="panel-body half-height banner flex-center" style=" background: url('{{url('storage/promoters/banner/' . Auth::user()->banner_image )}}');">
 
-                            <form action="/promoter/{{Auth::user()->slug}}/header-image" method="post" enctype="multipart/form-data" style="margin-left: 73.666667%; margin-top: -92px;" class="col-xs-4">
-                                {{csrf_field()}}
-                                {{method_field('PUT')}}
-                                <label for="banner_image">Upload a new banner image.</label>
-                                <input type="file" id="banner_image" name="banner_image">
-                                <input value="Change Banner Image" type="submit" class="btn btn-transparent" style="position: relative; top: 12px;">
-                            </form>
+                        
+                    <div>
+                        
+                        
+                        <div class="profile-image col-md-4" style="background: url('{{url('storage/promoters/avatar/' . Auth::user()->profile_image )}}');">
+                
                         </div>
-                    
+
                     </div>
+
+                </div>
+                <div class="panel-body row">
+                    
+                    <form action="/promoter/{{Auth::user()->slug}}/profile-image" method="post" enctype="multipart/form-data" class="col-md-6">
+                        {{csrf_field()}}
+                        {{method_field('PUT')}}
+                        <label class="btn btn-transparent" for="profile_image">Upload a new profile image.</label>
+                        <input type="file" id="profile_image" name="profile_image">
+                        <input value="Change Profile Image" type="submit" class="btn btn-primary">
+                    </form>
+                    
+
+                    <form action="/promoter/{{Auth::user()->slug}}/header-image" method="post" enctype="multipart/form-data" class="col-md-6">
+                        {{csrf_field()}}
+                        {{method_field('PUT')}}
+                        <label class="btn btn-transparent" for="banner_image">Upload a new banner image.</label>
+                        <input type="file" id="banner_image" name="banner_image">
+                        <input value="Change Banner Image" type="submit" class="btn btn-primary">
+                    </form>
+
                 </div>
             </div>
         </div>

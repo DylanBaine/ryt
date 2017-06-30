@@ -29,7 +29,12 @@ class BandInfoController extends Controller
     		$user->save();
 
     		return redirect('band/home'); 
-		}
+		}else{
+
+            return redirect('band/home');
+            
+        }
+
     	
     }
 
