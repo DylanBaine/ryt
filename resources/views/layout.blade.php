@@ -19,13 +19,11 @@
         <meta name="twitter:title" content="Route Your Tour">
         <meta name="twitter:image" content="{{asset('images/logo.gif')}}">
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+        @include('includes.styles')
 
-        <!-- Styles -->
-        <link rel="stylesheet" href="{{asset('css/app.css')}}">
     </head>
     <body id="app">
+
         <nav class="navbar navbar-transparent navbar-static-top" style="background-color: rgba(79, 185, 226, .3); border: transparent;">
             <div class="container">
                 <div class="navbar-header">
@@ -48,57 +46,49 @@
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
                         @if (Auth::guard('band')->check())
-                                <li><a href="/band/home">Home</a></li>
-                                <li>
-                                    <a href="{{ url('/band/logout') }}"
-                                        onclick="event.preventDefault();
-                                                 document.getElementById('logout-form').submit();">
-                                        Logout
-                                    </a>
 
-                                    <form id="logout-form" action="{{ url('/band/logout') }}" method="POST" style="display: none;">
-                                        {{ csrf_field() }}
-                                    </form>
-                                </li>
-
- {{--                       @elseif(Auth::guard('venue')->check())
-
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                    <span class="caret"></span>
+                            <li><a href="/band/home">Home</a></li>
+                            <li>
+                                <a href="{{ url('/band/logout') }}"
+                                    onclick="event.preventDefault();
+                                             document.getElementById('logout-form').submit();">
+                                    Logout
                                 </a>
 
-                                <ul class="dropdown-menu" role="menu">
-                                    <li>
-                                        <a href="{{ url('/venue/logout') }}"
-                                            onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                            Logout
-                                        </a>
-
-                                        <form id="logout-form" action="{{ url('/venue/logout') }}" method="POST" style="display: none;">
-                                            {{ csrf_field() }}
-                                        </form>
-                                    </li>
-                                    <li><a href="/venue/home">Home</a></li>
-                                </ul>
+                                <form id="logout-form" action="{{ url('/band/logout') }}" method="POST" style="display: none;">
+                                    {{ csrf_field() }}
+                                </form>
                             </li>
 
---}}                    @elseif(Auth::guard('promoter')->check())
+                        @elseif(Auth::guard('venue')->check())
 
-                            <li class="dropdown">
-                                <li><a href="/promoter/home">Home</a></li>
-                                <li>
-                                    <a href="{{ url('/band/logout') }}"
-                                        onclick="event.preventDefault();
-                                                 document.getElementById('logout-form').submit();">
-                                        Logout
-                                    </a>
+                            <li><a href="/venue/home">Home</a></li>
+                            <li>
+                                <a href="{{ url('/venue/logout') }}"
+                                    onclick="event.preventDefault();
+                                             document.getElementById('logout-form').submit();">
+                                    Logout
+                                </a>
 
-                                    <form id="logout-form" action="{{ url('/promoter/logout') }}" method="POST" style="display: none;">
-                                        {{ csrf_field() }}
-                                    </form>
-                                </li>
+                                <form id="logout-form" action="{{ url('/venue/logout') }}" method="POST" style="display: none;">
+                                    {{ csrf_field() }}
+                                </form>
+                            </li>
+
+                        @elseif(Auth::guard('promoter')->check())
+
+                            <li><a href="/promoter/home">Home</a></li>
+                            <li>
+                                <a href="{{ url('/promoter/logout') }}"
+                                    onclick="event.preventDefault();
+                                             document.getElementById('logout-form').submit();">
+                                    Logout
+                                </a>
+
+                                <form id="logout-form" action="{{ url('/promoter/logout') }}" method="POST" style="display: none;">
+                                    {{ csrf_field() }}
+                                </form>
+                            </li>
 
                         @else
 
@@ -110,101 +100,79 @@
                 </div>
             </div>
         </nav>
-    <div class="container-fluid">
-        <header>
-            <div class="header-img">
+        
+        <div class="container-fluid">
+            <header>
+                <div class="header-img">
+                </div>
+                <nav class="home-nav ">
+                    <ul style="width: 100vw; z-index: 999;">
+                        <li><a href="/" class="home">Home</a></li> | 
+                        <li><a href="/bands" class="bands">Bands/Artists</a></li> | 
+                        <li><a href="/promoters" class="promoters">Promoters/Booking Agents</a></li> | 
+                        <li><a href="/venues" class="venue">All Venues</a></li> |  
+                        <li><a href="">Contact Us</a></li>
+                    </ul>
+                </nav>
+                <nav class="toggle-nav">
+                        <div class="flex-center">
+                            
+                            <button style="background-color: transparent;border-color: transparent; margin-right: auto; margin-left: auto;" type="button" class="navbar-toggle collapsed open" data-toggle="collapse" data-target="#app-navbar-collapse-two">
+                                <span class="sr-only">Toggle Navigation</span>
+                                <span class="icon-bar bar-one" style="transition: all .5s"></span>
+                                <span class="icon-bar bar-two" style="transition: all .5s"></span>
+                                <span class="icon-bar bar-three" style="transition: all .5s"></span>
+                            </button>
+
+                        </div>
+                        <div class="collapse navbar-collapse" id="app-navbar-collapse-two">
+                            <ul class="nav navbar-nav text-center hidden-big" style=" z-index: 999; overflow: hidden; background: transparent;   ">
+                                <li><a href="/" class="home">Home</a></li>  
+                                <li><a href="/bands" class="bands">Bands/Artists</a></li> 
+                                <li><a href="/promoters" class="promoters">Promoters/Booking Agents</a></li> 
+                                <li><a href="/venues" class="venue">Venues</a></li>
+                                <li><a href="">Contact Us</a></li>
+                            </ul>
+                        </div>
+                </nav>
+                
+            </header>
+
+            @yield('content')    
+
+        </div>
+
+        <footer class="col-xs-12 quarter-height flex-center" style="background-color: black; color: white;">
+            <div class="col-xs-12 text-center">
+                <div class="col-md-4">Footer</div>
+                <div class="col-md-4">Footer</div>
+                <div class="col-md-4"><div>Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div></div>
             </div>
-            <nav class="home-nav ">
-                <ul style="width: 100vw; z-index: 999;">
-                    <li><a href="/" class="home">Home</a></li> | 
-                    <li><a href="/bands" class="bands">Bands/Artists</a></li> | 
-                    <li><a href="/promoters" class="promoters">Promoters/Booking Agents</a></li> | 
-                    <li><a href="/venues" class="venue">Submit Your Venue</a></li> | 
-                    <li><a href="/community" class="community">Community</a></li> | 
-                    <li><a href="">Contact Us</a></li>
-                </ul>
-            </nav>
-            <nav class="toggle-nav">
-                    <div class="flex-center">
-                        
-                        <button style="background-color: transparent;border-color: transparent; margin-right: auto; margin-left: auto;" type="button" class="navbar-toggle collapsed open" data-toggle="collapse" data-target="#app-navbar-collapse-two">
-                            <span class="sr-only">Toggle Navigation</span>
-                            <span class="icon-bar bar-one" style="transition: all .5s"></span>
-                            <span class="icon-bar bar-two" style="transition: all .5s"></span>
-                            <span class="icon-bar bar-three" style="transition: all .5s"></span>
-                        </button>
+        </footer>
 
-                    </div>
-                    <div class="collapse navbar-collapse" id="app-navbar-collapse-two">
-                        <ul class="nav navbar-nav text-center hidden-big" style=" z-index: 999; overflow: hidden; background: transparent;   ">
-                            <li><a href="/" class="home">Home</a></li>  
-                            <li><a href="/bands" class="bands">Bands/Artists</a></li> 
-                            <li><a href="/promoters" class="promoters">Promoters/Booking Agents</a></li> 
-                            <li><a href="/venue/register" class="venue">Submit Your Venue</a></li>
-                            <li><a href="/community" class="community">Community</a></li> 
-                            <li><a href="">Contact Us</a></li>
-                        </ul>
-                    </div>
-            </nav>
-            
-        </header>
+        @if(Auth::guard('band')->check())
+            <div class="profile btn-transparent">
+                <a href="/band/home">Home Page</a>
+            </div>
+        @endif
+        
+        @include('includes.scripts')
 
-        @yield('content')    
+        <style>
+            .bar-one-open {
+                transform: rotate(45deg);
+                margin-top: 4px;
+                position: absolute;
+            }
+            .bar-two-open {
+                transform: rotate(-45deg);
+            }
 
-    </div>
-    <footer class="col-xs-12 quarter-height flex-center" style="background-color: black; color: white;">
-        <div class="col-xs-12 text-center">
-            <div class="col-md-4">Footer</div>
-            <div class="col-md-4">Footer</div>
-            <div class="col-md-4"><div>Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div></div>
-        </div>
-    </footer>
+            .bar-three-open {
+                opacity: 0;
+            }
+        </style>
 
-    @if(Auth::guard('band')->check())
-        <div class="profile btn-transparent">
-            <a href="/band/home">Home Page</a>
-        </div>
-    @endif
+    </body>  
 
-    </body>
-    <!-- Scripts -->
-    <script src="{{asset('js/app.js')}}"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/core.js"></script>
-    <script>
-        $('.open').click(function(){
-            $('.bar-one').toggleClass('bar-one-open');
-
-            $('.bar-two').toggleClass('bar-two-open');
-
-            $('.bar-three').toggleClass('bar-three-open');
-        });
-    $('.open-form').click(function(){
-        $('.search-form').css({
-            'width' : '100%',
-            'height' : '100%'
-        });
-        $('.search').css({
-            'height' : '183px'
-        });
-        $(this).css({
-            'display': 'none'
-        })
-    });
-
-
-</script>
-    <style>
-        .bar-one-open {
-            transform: rotate(45deg);
-            margin-top: 4px;
-            position: absolute;
-        }
-        .bar-two-open {
-            transform: rotate(-45deg);
-        }
-
-        .bar-three-open {
-            opacity: 0;
-        }
-    </style>
 </html>

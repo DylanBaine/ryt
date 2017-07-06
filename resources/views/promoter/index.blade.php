@@ -12,15 +12,17 @@
 
 					<button class="col-md-3 col-xs-5 btn btn-primary open-form text-uppercase"><i class="glyphicon glyphicon-search"></i> Search</button>
 
-					<div class="search-form">
-						<form method="get" action="{{url('promoters')}}">
-							<input type="text" name="search" value="{{$search}}" class="col-xs-5" placeholder="ex. rock shawnee oklahoma">
-							<input type="submit" value="search" class="btn btn-primary col-xs-3 col-xs-offset-1 text-uppercase">
+					<div class="search-form text-center">
+						<form method="get" action="{{url('promoters')}}" class="col-xs-10">
+							<input type="text" name="search" value="{{$search}}" class="col-xs-6" placeholder="ex. rock shawnee oklahoma" style="background-color: gainsboro">
+							<input type="submit" value="search" class="btn btn-primary col-xs-4 col-xs-offset-2 text-uppercase">						
 						</form>
+
+						<div class="col-xs-2">
+							<strong>search powered by: <a href="https://www.algolia.com" target="_blank"><img src="images/algolia.svg" alt="Algolia" style="width: 100px "></a></strong>
+						</div>
+
 					</div>		
-
-
-
 				</div>
 			</div>
 
@@ -36,9 +38,10 @@
 	            <div class="panel panel-default">
 	                <div class="panel-heading">
 	                	<h3 class="text-center caps">{{$promoter->agency_name}}</h3>
+	                	<span>{{$promoter->type}}</span>
 	                </div>
 
-	                <div class="panel-body" style=" background: url('{{url('images/promoters/' . $promoter->profile_image )}}'); background-repeat: no-repeat; background-size: cover;
+	                <div class="panel-body" style=" background: url('{{url('storage/promoters/avatar/' . $promoter->profile_image )}}'); background-repeat: no-repeat; background-size: cover;
 	                background-position: center; height: 300px;">
 	                </div>
 	                <div class="panel-footer caps flex-center">

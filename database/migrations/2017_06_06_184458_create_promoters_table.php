@@ -22,9 +22,11 @@ class CreatePromotersTable extends Migration
             $table->string('first_name');
             $table->string('last_name');
             $table->string('phone');
-            $table->string('profile_image')->default('default.jpg');
-            $table->string('banner_image')->default('default.jpg');
+            $table->string('type');
+            $table->string('profile_image')->default('default.png');
+            $table->string('banner_image')->default('default.png');
             $table->string('email_hidden')->default('yes');
+            $table->string('phone_hidden')->default('yes');
             $table->string('facebook')->nullable();
             $table->string('twitter')->nullable();            
             $table->text('bio')->nullable();

@@ -20,7 +20,7 @@ class BandInfoController extends Controller
 
     		$imageURL = time() . '.' . $image->getClientOriginalExtension();
 
-    		Image::make($image)->save(public_path('images/bands/'. $imageURL));
+    		Image::make($image)->save(public_path('storage/bands/avatar/'. $imageURL));
 		
     		$user = \App\Band::where('slug', $slug )->first();
 
@@ -29,7 +29,12 @@ class BandInfoController extends Controller
     		$user->save();
 
     		return redirect('band/home'); 
-		}
+		}else{
+
+            return redirect('band/home');
+            
+        }
+
     	
     }
 
@@ -43,7 +48,7 @@ class BandInfoController extends Controller
 
             $imageURL = time() . '.' . $image->getClientOriginalExtension();
 
-            Image::make($image)->save(public_path('images/bands/banner/'. $imageURL));
+            Image::make($image)->save(public_path('storage/bands/banner/'. $imageURL));
         
             $user = \App\Band::where('slug', $slug )->first();
 
