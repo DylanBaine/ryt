@@ -8678,7 +8678,7 @@ form .stars {
 input.star { display: none; }
 
 label.star {
-  opacity: .8;
+  opacity: .6;
   margin: 20px;
   float: right;
   padding: 10px;
@@ -8705,11 +8705,17 @@ input.star-3:checked ~ label.star:before {
   color: #4bec0b; 
 }
 
-
-label.star:hover { 
-  cursor: pointer; 
-  opacity: 1;
+label.star:hover ~ label.star:before{
+  content: '\f005';
 }
+
+label.star:hover + label.star:before { 
+  cursor: pointer;
+  opacity: 1;
+  
+}
+
+
 
 label.star:before {
   content: '\f006';
