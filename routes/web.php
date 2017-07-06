@@ -17,6 +17,18 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::get('/0334.6784.32784.2193.adsjoie.sdo', function(){
+  return view('auth.login');
+});
+
+Route::get('/home', function(){
+  return view('home');
+});
+
+Route::get('/admin-register-form-12345', function(){
+  return view('auth.register');
+});
+
 Route::get('/login', 'PagesController@login')->name('login');
 Route::get('/register', 'PagesController@register')->name('register');
 
