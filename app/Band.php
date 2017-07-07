@@ -40,4 +40,9 @@ class Band extends Authenticatable
     {
         $this->notify(new BandResetPassword($token));
     }
+
+    public function reviews()
+    {
+        return $this->hasMany(BandReview::class);
+    }
 }

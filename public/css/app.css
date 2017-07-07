@@ -8921,6 +8921,30 @@ label{
   width: 20px;
   height: 20px;
 }
+.all-reviews-cont{
+  position: fixed;
+  top: 0px;
+  left: -200vw;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, .5);
+  overflow: auto;
+  z-index: 99999;
+  transition: all .4s;
+}
+.all-reviews-cont .exit-reviews {
+  margin: 10px 0 0 10px;
+  border:transparent;
+  color: white;
+  font-weight: 100;
+  font-size: 22px;
+  outline: transparent;
+  box-shadow: 4px 1px 4px black;
+}
+.all-reviews-cont .review-cont{
+  
+  box-shadow: 6px 7px 12px black; 
+}
 @media screen and (max-width: 767px) {
   .home-nav {
     height: 0 ;

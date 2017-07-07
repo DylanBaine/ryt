@@ -27,7 +27,7 @@ class PagesController extends Controller
     {
     	$promoter = \App\Promoter::where('slug', $slug)->first();
 
-        $user = Auth::user();
+        $user = Auth::user();       
 
     	return view('promoter.home', compact('user', 'promoter'));
     }
@@ -39,6 +39,10 @@ class PagesController extends Controller
 
         $user = Auth::user();
 
-    	return view('promoter.profile', compact('promoter', 'user'));
+        $reviews = $promoter->reviews->take(3);
+
+        $rating = $promoter->reviews->avg('stars'); 
+
+    	return view('promoter.profile', compact('promoter', 'user', 'reviews', 'rating'));
     }
 }
