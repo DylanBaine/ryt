@@ -40,4 +40,9 @@ class Promoter extends Authenticatable
     {
         $this->notify(new PromoterResetPassword($token));
     }
+
+    public function reviews()
+    {
+        return $this->hasMany(PromoterReview::class);
+    }
 }
