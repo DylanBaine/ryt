@@ -1,0 +1,243 @@
+
+// Fonts
+@import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);
+
+// Variables
+@import "variables";
+
+// Bootstrap
+@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+
+html, body {
+    background-color: $body-bg;
+    color: $text-color;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 100;
+    height: 100vh;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+.full-height {
+    height: 100vh;
+}
+
+.half-height {
+	height: 50vh;
+}
+.flex-center {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.position-ref {
+    position: relative;
+}
+
+.top-right {
+    position: absolute;
+    right: 10px;
+    top: 18px;
+}
+
+.content {
+    text-align: center;
+}
+
+.title {
+    font-size: 84px;
+}
+
+a {
+    color: $blue;
+    padding: 0 25px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: .1rem;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+.m-b-md {
+    margin-bottom: 30px;
+}
+
+.right-border {
+    border-right: solid $text-color 2px;
+}
+
+.header-img{
+  background-image: url('../images/logo.gif');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 45vh;
+  margin: 10px auto;
+}
+.home-nav ul{
+  border-top: solid #d9d8d8 1px;
+  border-bottom: solid #d9d8d8 1px;
+  text-align: center;
+}
+.home-nav ul li{
+  display: inline-block;
+  padding: 10px 20px;
+}
+.home-nav a{
+  color: #2c2828;
+  opacity: .7;
+}
+.home-nav a:hover{
+  text-decoration: none;
+  opacity: 1;
+}
+.active-nav{
+  font-weight: bold;
+  border-bottom: solid 2px #51bae1;
+  padding-bottom: 12px;
+  opacity: 1;
+}
+.container-fluid{
+  padding: 0;
+}
+#map-canvas{
+  height: 45vh;
+  position: relative;
+  z-index: 1 !important;
+}
+.control-panel{
+  background-color: transparent;
+  position: relative;   
+  margin-top: -50vh;
+  text-align: center;
+  z-index: 5;
+}
+.route{
+  border: solid #f3f9fb 4px;
+  bottom:0px;
+  background-color: #7be2e2;
+  border-radius: 10px;
+  padding: 0;
+  height: 310px;
+  overflow-y: scroll;
+}
+.pannel-btn{
+  width: 80%;
+  height: 30px;
+  margin: 0 auto;
+  background-color: #ff9c00;
+  border-radius: 5px;
+  border: transparent;
+  color: #f3f9fb;
+  font-weight: bold;
+  transition: background .5s;
+}
+.pannel-btn:hover{
+  background: rgba(255, 156, 0, .8);
+  border: solid black 2px;
+  box-sizing: border-box;
+}
+#map {
+  height: 100vh !important;
+}
+#venues-of-the-week{
+  text-align: left;
+  background-color: #edfafa;
+}
+.stop-input{
+  display: none;
+}
+.add-stop{
+  margin-left: 43px;
+  width: 60%;
+  background-color: white;
+  padding:5px;
+}
+.add-stop:hover{
+  cursor:pointer;
+  box-shadow: 2px 2px 6px black;
+}
+input{
+  border: transparent;
+  outline-color: transparent;
+}
+.nav-tabs a{
+  color: black;
+  width: 100%; 
+  border-radius: 10px 10px 0 0;
+  height: 30px;
+  padding: 0;
+}
+.nav-tabs li{
+  background-color: #7be2e2;
+  margin-right:5px;
+  margin-left: 5px;
+  margin-bottom: 0px;
+  border-radius: 10px 10px 0 0;
+  height: 30px;
+  padding: 0;
+}
+.btn-black{
+  background-color: black;
+  color: white;
+}
+.caps{
+  text-transform: capitalize;
+}
+.profile {
+    position: fixed;
+    background-color: $blue;
+    color: white;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px black;
+    top: 90vh;
+    left: 20px;
+    z-index: 999;
+}
+
+.navbar-nav a {
+    margin-left: 10px;
+}
+
+.btn-transparent {
+  background-color: rgba(0, 0, 0, .7);
+  color: white;
+  transition: all .4s;
+}
+.btn-transparent:hover {
+  background-color: black;
+  color: white;
+}
+.banner, .profile-image{
+  background-position: center !important; 
+  background-size: cover !important; 
+  background-repeat: no-repeat !important;
+}
+.profile-image {
+  width: 25vh !important;
+  height: 25vh !important;
+  border-radius: 10% !important;
+  box-sizing: border-box;
+  border:solid white 5px;
+}
+.bands-a {
+  transition: all .3s;
+}
+.bands-a:hover .hr {
+  width: 150vw !important;
+}
+.icon-bar {
+  background: black;
+}
+
+@media screen and (min-width: 767px) {
+  .home-nav {
+    height: 0;
+    overflow: hidden;
+  }
+}
