@@ -113,3 +113,5 @@ Route::group(['prefix' => 'venue'], function () {
 });
 
 Route::post('/band-review', 'BandReviewController@saveReview');
+
+Route::post('/venue-review', 'VenueReviewsController@saveReview');
