@@ -111,3 +111,5 @@ Route::group(['prefix' => 'venue'], function () {
 
   Route::get('{slug}', 'VenueAuth\PagesController@profile');
 });
+
+Route::post('/band-review', 'BandReviewController@saveReview');

@@ -26,11 +26,15 @@ class PagesController extends Controller
     public function profile($slug)
     {
 
-    	$band = \App\Band::where('slug', $slug)->first();
+        $band = \App\Band::where('slug', $slug)->first();
 
         $user = Auth::user();
 
-    	return view('band.profile', compact('band', 'user'));
+        $reviews = $band->reviews->take(3);
+
+        $rating = $band->reviews->avg('stars');
+
+    	return view('band.profile', compact('band', 'user', 'reviews', 'rating'));
     }
 
     public function home($slug)
