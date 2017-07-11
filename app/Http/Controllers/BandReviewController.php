@@ -8,6 +8,15 @@ class BandReviewController extends Controller
 {
     public function saveReview(Request $request)
     {
+
+        $this->validate($request, [
+            'band_id' => 'required',
+            'reviewer' => 'required',
+            'reviewer_relationship' => 'required',
+            'stars' => 'required',
+            'review' => 'required'
+        ]);
+        
     	$review = new \App\BandReview;
 
     	$review->band_id = request('band_id');

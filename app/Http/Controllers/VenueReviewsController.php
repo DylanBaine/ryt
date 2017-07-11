@@ -8,6 +8,14 @@ class VenueReviewsController extends Controller
 {
     public function saveReview(Request $request)
     {
+
+        $this->validate($request, [
+            'venue_id' => 'required',
+            'reviewer' => 'required',
+            'reviewer_relationship' => 'required',
+            'review' => 'required'
+        ]);
+
     	$review = new \App\VenueReviews;
 
     	$review->venue_id = request('venue_id');

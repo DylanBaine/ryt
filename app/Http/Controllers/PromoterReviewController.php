@@ -8,6 +8,15 @@ class PromoterReviewController extends Controller
 {
     public function saveReview(Request $request)
     {
+
+        $this->validate($request, [
+            'promoter_id' => 'required',
+            'reviewer' => 'required',
+            'reviewer_relationship' => 'required',
+            'stars' => 'required',
+            'review' => 'required'
+        ]);
+
     	$review = new \App\PromoterReview;
 
     	$review->promoter_id = request('promoter_id');

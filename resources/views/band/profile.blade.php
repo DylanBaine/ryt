@@ -2,6 +2,17 @@
 
 @section('content')
 <div class="container-fluid">
+
+@if ($errors->any())
+    <div class="alert alert-danger col-md-4 col-md-offset-4 text-center">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
     <div class="row">
         <header class="banner col-xs-10 col-xs-offset-1 half-height flex-center" style="background: url('{{url('storage/bands/banner/' . $band->banner_image )}}'); margin-top: -20px;">
             <div>
