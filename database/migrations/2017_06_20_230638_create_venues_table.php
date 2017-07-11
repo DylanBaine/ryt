@@ -18,8 +18,8 @@ class CreateVenuesTable extends Migration
             $table->string('slug');
             $table->string('email');
             $table->string('password');
-            $table->string('venue_title');
-            $table->string('address')->nullable();
+            $table->string('venue_title')->nullable();
+            $table->string('address')->unique();
             $table->string('lat')->nullable();
             $table->string('long')->nullable();
             $table->string('phone_number')->nullable();
