@@ -13,7 +13,6 @@ class VenueReviewsController extends Controller
             'venue_id' => 'required',
             'reviewer' => 'required',
             'reviewer_relationship' => 'required',
-            'stars' => 'required',
             'review' => 'required'
         ]);
 

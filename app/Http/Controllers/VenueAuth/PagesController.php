@@ -12,11 +12,12 @@ class PagesController extends Controller
     {
         $search = \Request::get('search');
         if($search != NULL){
-           $venues = \App\Venue::search($search)->paginate(5);
+         $venues = \App\Venue::search($search)->paginate(24);
        }elseif ($search == NULL) {
-           $venues = \App\Venue::orderBy('id', 'desc')->paginate(5);
+           $venues = \App\Venue::orderBy('id', 'desc')->paginate(24);
        }
-        return view('venue.index', compact('venues', 'search'));
+
+      return view('venue.index', compact('venues', 'search'));
     }
 
     public function profile($slug){
