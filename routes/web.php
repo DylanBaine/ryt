@@ -25,6 +25,8 @@ Route::get('/home', function(){
   return view('home');
 });
 
+Route::post('/upload-db', 'UploadDatabaseController@upload');
+
 Route::get('/admin-register-form-12345', function(){
   return view('auth.register');
 });

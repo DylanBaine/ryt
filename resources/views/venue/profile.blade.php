@@ -39,7 +39,9 @@
                 @endif
 
                 <div class="stars">
-                    @if($rating <= 1)
+                    @if($rating < 1)
+                    No Rating Yet
+                    @elseif($rating <= 1)
                     <span for="" class="star" style="color: #FD4"></span>
                     @elseif($rating <= 2)
                     <span for="" class="star" style="color: #FD4"></span>
@@ -208,7 +210,7 @@
                     </header>
                     <article class="col-xs-12">
                         <div class="shows-cont">
-                            <div s>
+                            <div>
                                 <h3>Band One</h3>
                                 <hr>
                                 <p>Lorem ipsum dolor sit amet.</p>
@@ -216,7 +218,7 @@
                         </div>
 
                         <div class="shows-cont">
-                            <div s>
+                            <div>
                                 <h3>band Two</h3>
                                 <hr>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus molestias assumenda laboriosam.</p>
@@ -225,7 +227,7 @@
 
 
                         <div class="shows-cont">
-                            <div s>
+                            <div>
                                 <h3>Band Three</h3>
                                 <hr>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus molestias assumenda laboriosam.</p>
@@ -254,9 +256,11 @@
 
                         <li class="review-cont" style="list-style: none;">
                             <div>
-                                <h3 class="text-capitalize">{{$review->reviewer}} <small>{{$review->reviewer_relationship}}</small></h3>
+                                <h3 class="text-capitalize">{{$review->reviewer}}  <small>{{$review->reviewer_relationship}}</small></h3>
                                 <hr>
-                                <p>"{{$review->review}}"</p>
+                                <p style="text-align: center;">"{{$review->review}}"</p>
+                                <hr>
+                                <h4 class="rate">{{$review->stars}} stars</h4>
                             </div>
                         </li>
 
@@ -370,7 +374,9 @@
                         <div>
                             <h3 class="text-capitalize">{{$allReview->reviewer}} <small>{{$allReview->reviewer_relationship}}</small></h3>
                             <hr>
-                            <p>"{{$allReview->review}}"</p>
+                            <p style="text-align: center;">"{{$allReview->review}}"</p>
+                            <hr>
+                            <h4 class="rate">{{$review->stars}} stars</h4>
                         </div>
                     </li>
                 @endforeach
