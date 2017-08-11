@@ -8,6 +8,6 @@ class BandReview extends Model
 {
     public function band()
     {
-    	return $this->belongsTo(BandReview::class);
+    	return $this->belongsTo(Band::class);
     }
 }

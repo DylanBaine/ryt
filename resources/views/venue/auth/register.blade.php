@@ -52,6 +52,84 @@
                             </div>
                         </div>
 
+                        <div class="login-radio col-md-6 col-md-offset-4">
+                        
+                            <label for=""><h2>Select the type that best fits.</h2></label>
+                            <br>
+                            
+                            <div class="form-group radio-cont">                            
+                                <label for="amphitheater">Amphitheater</label>
+                                <input type="radio" name="category" id="amphitheater" value="amphitheater">
+                            </div>
+
+                            <div class="form-group radio-cont">                            
+                                <label for="arena">Arena</label>
+                                <input type="radio" name="category" id="arena" value="arena">
+                            </div>
+
+
+                            <div class="form-group radio-cont">                            
+                                <label for="auditorium">Auditorium</label>
+                                <input type="radio" name="category" id="auditorium" value="auditorium">
+                            </div>
+
+                            <div class="form-group radio-cont">                            
+                                <label for="bar-venue">Bar Venue</label>
+                                <input type="radio" name="category" id="bar-venue" value="bar venue">
+                            </div>
+
+                            <div class="form-group radio-cont">                          
+                                <label for="casino-venue">Casino Venue</label>
+                                <input type="radio" name="category" id="casino-venue" value="casino venue">
+                            </div> 
+
+                            <div class="form-group radio-cont">                          
+                                <label for="church-venue">church venue</label>
+                                <input type="radio" name="category" id="church-venue" value="church venue">
+                            </div> 
+
+                            <div class="form-group radio-cont">                            
+                                <label for="club">club</label>
+                                <input type="radio" name="category" id="club" value="club">
+                            </div>
+
+                            <div class="form-group radio-cont">                            
+                                <label for="coffee-house">coffee house</label>
+                                <input type="radio" name="category" id="coffee-house" value="coffee house">
+                            </div>
+
+                            <div class="form-group radio-cont">                            
+                                <label for="event-venue">event venue</label>
+                                <input type="radio" name="category" id="event-venue" value="event venue">
+                            </div>
+
+                            <div class="form-group radio-cont">                            
+                                <label for="music-hall">music hall</label>
+                                <input type="radio" name="category" id="music-hall" value="music hall">
+                            </div>
+
+                            <div class="form-group radio-cont">                            
+                                <label for="restaurant-venue">restaurant venue</label>
+                                <input type="radio" name="category" id="restaurant-venue" value="restaurant venue">
+                            </div>
+
+                            <div class="form-group radio-cont">                            
+                                <label for="outdoor-festival">outdoor festival</label>
+                                <input type="radio" name="category" id="outdoor-festival" value="outdoor festival">
+                            </div>
+
+                            <div class="form-group radio-cont">                            
+                                <label for="stadium-venue">stadium venue</label>
+                                <input type="radio" name="category" id="stadium-venue" value="stadium venue">
+                            </div>
+
+                            <div class="form-group radio-cont">                            
+                                <label for="amphitheater">Amphitheater</label>
+                                <input type="radio" name="category" id="amphitheater" value="amphitheater">
+                            </div>
+
+                    </div>
+
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                             <label for="password" class="col-md-4 control-label">Password</label>
 

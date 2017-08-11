@@ -112,6 +112,13 @@ Route::group(['prefix' => 'venue'], function () {
   Route::get('/password/reset/{token}', 'VenueAuth\ResetPasswordController@showResetForm');
 
   Route::get('{slug}', 'VenueAuth\PagesController@profile');
+
+  Route::post('/add-show', 'VenueShowController@addShow');
+  Route::get('{slug}/shows', 'VenueAuth\PagesController@shows');
+  Route::get('{slug}/show/{show_slug}', 'VenueAuth\PagesController@showPage');
+  Route::put('{slug}/show/{show_slug}/edit', 'VenueShowController@editShow');
+  Route::delete('{id}/delete', 'VenueShowController@destroy');
+
 });
 
 Route::post('/band-review', 'BandReviewController@saveReview');
@@ -119,3 +126,4 @@ Route::post('/band-review', 'BandReviewController@saveReview');
 Route::post('/venue-review', 'VenueReviewsController@saveReview');
 
 Route::post('/promoter-review', 'PromoterReviewController@saveReview');
+

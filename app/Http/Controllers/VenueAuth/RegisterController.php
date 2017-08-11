@@ -51,6 +51,7 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'name' => 'required|max:255',
             'email' => 'required|email|max:255|unique:venues',
+            'category' => 'required',
             'password' => 'required|min:6|confirmed',
         ]);
     }
@@ -68,6 +69,7 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'venue_title' =>$data['venue_title'],
             'slug' =>str_slug($data['venue_title']),
+            'category' => $data['category'],
             'password' => bcrypt($data['password']),
         ]);
     }

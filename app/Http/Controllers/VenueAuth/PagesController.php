@@ -28,7 +28,9 @@ class PagesController extends Controller
 
       $rating = $venue->reviews->avg('stars'); 
 
-    	return view('venue.profile', compact('venue', 'reviews', 'rating'));
+      $shows = $venue->show->take(1);
+
+    	return view('venue.profile', compact('venue', 'reviews', 'rating', 'shows'));
     }
 
     public function home(){
@@ -37,4 +39,24 @@ class PagesController extends Controller
 
     	return view('venue.home', compact('user'));
     }
+
+    public function shows($slug){
+
+      $venue = \App\Venue::where('slug', $slug)->first();
+
+      return view('venue.shows', compact('venue'));
+
+    }
+
+    public function showPage($slug, $show_slug){
+
+      $venue = \App\Venue::where('slug', $slug)->first();
+
+      $show = \App\VenueShow::where('show_slug', $show_slug)->first();
+
+      return view('venue.show-page', compact('venue', 'show'));
+
+    }
+
+
 }

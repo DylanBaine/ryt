@@ -25,6 +25,8 @@
         <title>{{ config('app.name', 'Laravel Multi Auth Guard') }}</title>
 
         @include('includes.styles')
+        <!-- Scripts -->
+        @include('includes.scripts')
         
     </head>
     <body id="app">
@@ -41,8 +43,7 @@
             footer
         </footer>
         
-        <!-- Scripts -->
-        @include('includes.scripts')
+        
 
     </body>
 </html>

@@ -35,7 +35,7 @@ $('.gallery-inner input').change(function(){
          })
 });
 
-$('input#profile_image').change(function(){
+$('#profile_image').change(function(){
     $('.profile-image').css({ 
         'background' : 'url(' + window.URL.createObjectURL(this.files[0]) + ')',
         'background-size': 'cover',
@@ -45,13 +45,22 @@ $('input#profile_image').change(function(){
 });
 
 
-$('input#banner_image').change(function(){
+$('#banner_image').change(function(){
     $('.banner').css({ 
         'background' : 'url(' + window.URL.createObjectURL(this.files[0]) + ')',
         'background-size': 'cover',
         'background-position': 'center',
         'backgroung-repeat': 'no-repeat'
          })
+});
+
+$('#show-banner').change(function(){
+    $('.show-banner').css({ 
+        'background' : 'url(' + window.URL.createObjectURL(this.files[0]) + ') !important',
+        'background-size': 'cover',
+        'background-position': 'center',
+        'backgroung-repeat': 'no-repeat'
+         });
 });
 
 //open review form

@@ -206,35 +206,28 @@
                 <div class="row">
                     
                     <header class="col-xs-12 flex-center">
-                        <h3>Previous Shows</h3>
+                        <h3>Shows</h3>
                     </header>
-                    <article class="col-xs-12">
-                        <div class="shows-cont">
-                            <div>
-                                <h3>Band One</h3>
-                                <hr>
-                                <p>Lorem ipsum dolor sit amet.</p>
+                        @foreach($shows as $show)
+
+                            <div style="padding: 20px;" class="col-md-12">
+                                
+                                <div class="show-container row">
+                                    
+                                    <h3 class="text-center" style="margin: 20px;">{{$show->title}}</h3>
+                                    <small>{{$show->date}}</small>
+                                    @if($show->image != 'default-show.jpg')
+                                    <img src="/storage/venues/show-banners/{{$show->image}}" alt="{{$show->title}}" class="col-md-10 col-md-offset-1">
+                                    @endif
+
+                                </div>
+
                             </div>
-                        </div>
 
-                        <div class="shows-cont">
-                            <div>
-                                <h3>band Two</h3>
-                                <hr>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus molestias assumenda laboriosam.</p>
-                            </div>
-                        </div>
-
-
-                        <div class="shows-cont">
-                            <div>
-                                <h3>Band Three</h3>
-                                <hr>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus molestias assumenda laboriosam.</p>
-                            </div>
-                        </div>
-
+                        @endforeach
                     </article>
+
+                    <a href="/venue/{{$venue->slug}}/shows" class="btn btn-success">See All Shows</a>
 
                 </div>
             </aside>        

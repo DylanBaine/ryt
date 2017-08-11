@@ -18,7 +18,7 @@ class Venue extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'slug', 'venue_title'
+        'name', 'email', 'password', 'slug', 'venue_title', 'category'
     ];
 
     /**
@@ -44,5 +44,9 @@ class Venue extends Authenticatable
     public function reviews()
     {
         return $this->hasMany(VenueReviews::class);
+    }
+    public function show()
+    {
+        return $this->hasMany(VenueShow::class);
     }
 }

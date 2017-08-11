@@ -29,3 +29,4 @@ class VenueReviewsController extends Controller
     	return redirect()->back();
     }
 }
+

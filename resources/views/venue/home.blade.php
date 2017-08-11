@@ -441,6 +441,119 @@
             </form>
 
         </aside>
+        <section id="add-show-form" class="col-md-6">
+            <header class="text-center" style="padding: 20px;">
+                <h3>Add a Show</h3>
+            </header>
+            <form action="/venue/add-show" method="post" enctype="multipart/form-data">
+
+                    {{csrf_field()}}
+                    <input type="hidden" name="relation" value="{{Auth::user()->id}}">
+
+                <div class="form-group">
+                    <label for="show-title">Title of the show:</label>
+                    <input type="text" id="show-title" name="title" class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <label for="show-date">date:</label>
+                    <input type="text" id="show-date" name="date" class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <label for="show-title">Details:</label>
+                    <textarea id="show-title" name="details" class="form-control" cols="10" rows="5"></textarea>
+                </div>
+
+                <div class="show-banner"></div>
+
+                <div class="form-group">
+                    <label for="show-banner" class="btn btn-transparent">Add A Show Banner</label>
+                    <input type="file" id="show-banner" name="image">                    
+                </div>
+                <input type="submit" value="Save Show" class="btn btn-primary btn-block">    
+
+            </form>
+        </section>
+        <section id="make-shows" class="col-md-6">
+            <header class="text-center" style="padding: 20px;">
+                <h3>Added Shows</h3>
+            </header>
+
+            @foreach(Auth::user()->show as $show)
+                <div class="show-container row">
+
+                    <h3 class="text-capitalize">{{$show->title}}</h3>
+                    <hr>
+                
+                    <div class="text-center">
+                        <a href="{{url('venue/'. Auth::user()->slug .'/show/' . $show->show_slug)}}" class="btn btn-primary">See Show Page</a>
+                        <button class="btn btn-success text-uppercase {{$show->show_slug}}-show-edit-form">Edit Show</button>
+                        <br>
+                        <br>
+                        <form action="{{url('/venue/' . $show->id . '/delete')}}" method="post">
+
+                            {{csrf_field()}}
+
+                            {{method_field('delete')}}
+
+
+                            <input type="submit" value="Delete this Show" class="btn btn-danger text-uppercase">
+                            <small>(cant be undone)</small>
+                        </form>
+                    </div>
+                </div>
+                <div class="{{$show->show_slug}}-edit-form edit-form modal flex-center">
+                    <button class="btn btn-danger {{$show->show_slug}}-hide-edit-form" style="position: absolute; top: 50px; left: 50px;">Cancel</button>
+                    <form action="{{url('venue/'. Auth::user()->slug .'/show/' . $show->show_slug . '/edit')}}" method="post" enctype="multipart/form-data" class="col-md-6">
+
+                        {{csrf_field()}}
+
+                        <input type="hidden" name="relation" value="{{Auth::user()->id}}">
+
+                        <div class="form-group">
+                            <label for="show-title">Title of the show:</label>
+                            <input type="text" id="show-title" name="title" class="form-control" value="{{$show->title}}">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="show-date">date:</label>
+                            <input type="text" id="show-date" name="date" class="form-control" value="{{$show->date}}">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="show-title">Details:</label>
+                            <textarea id="show-title" name="details" class="form-control" cols="10" rows="5">
+                                {{$show->details}}
+                            </textarea>
+                        </div>
+
+                        <input type="submit" value="UPDATE" class="btn btn-primary btn-block">    
+
+                    </form>
+
+                    <script>
+                        $('.{{$show->show_slug}}-show-edit-form').click(function(){
+                            $('.{{$show->show_slug}}-edit-form').css({
+                                  'height': '100vh',
+                                  'width': '100vw',
+                                  'z-index': '99999',
+                            });                            
+                        });
+
+                        $('.{{$show->show_slug}}-hide-edit-form').click(function(){
+                            $('.{{$show->show_slug}}-edit-form').css({
+                                  'height': '0vh',
+                                  'width': '0vw',
+                                  'z-index': '-1',
+                            });                            
+                        });
+
+                    </script>
+
+                </div>
+            @endforeach
+        </section>
     </div>
 </div>
 
